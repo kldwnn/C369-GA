@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LoanLink - Register</title>
+    <style>
+        body {
+            font-family: 'Lucida Sans', sans-serif;
+            margin: 0;
+            padding: 0;
+            color: #333;
+            background-color: #f4f4f4;
+        }
+        header {
+            background-color:  #c6fff0d3;
+            padding: 1rem;
+            text-align: center;
+        }
+        nav {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+        }
+        nav a {
+            color: #000000;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        .container {
+            width: 50%;
+            margin: 3rem auto;
+            background-color: #fff;
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        .form-group {
+            margin-bottom: 1rem;
+        }
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+        }
+        .form-group input, .form-group button {
+            width: 100%;
+            padding: 0.5rem;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+        }
+        .form-group button {
+            background-color: #007BFF;
+            color: #fff;
+            font-weight: bold;
+            cursor: pointer;
+        }
+        .form-group button:hover {
+            background-color: #0056b3;
+            color:#c2c2c2c3;
+            border: none;
+            transition: background-color 0.6s ease, color 0.6s ease;
+        }
+        .loan-options, .personal-info {
+            display: none;
+        }
+        .loan-option {
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            padding: 1rem;
+            margin-bottom: 1rem;
+            cursor: pointer;
+        }
+        .loan-option:hover {
+            background-color: #f4f4f4;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <img src="Logo.png" alt="LoanLink Logo" style = 'width: 300px; height: 120px;'>
+
+        <nav>
+            <a href="homepage.html">Home</a>
+            <a href="account.html">Account</a>
+            <a href="loanCalculator.html">Loan Calculator</a>
+            <a href="registerPage.html">Register</a>
+            <a href="#">More</a>
+        </nav>
+    </header>
+
+    <div class="container">
+        <h2>Create an account with LoanLink</h2>
+        <div id="initial-form">
+            <div class="form-group">
+                <label for="email">Email Address:</label>
+                <input type="email" id="email" placeholder="Enter your email address" required>
+            </div>
+            <div class="form-group">
+                <button onclick="showLoanOptions()">Next</button>
+            </div>
+            <p>Already have an account? <a href="#">Sign In</a></p>
+        </div>
+
+        <div id="loan-options" class="loan-options">
+            <h3>Select Loan Type</h3>
+            <div class="loan-option" onclick="showPersonalInfo('House Loan')">
+                <h4>House Loan</h4>
+                <p>We offer competitive interest rates to make your loans more manageable.</p>
+            </div>
+            <div class="loan-option" onclick="showPersonalInfo('Personal Loan')">
+                <h4>Personal Loan</h4>
+                <p>Flexible terms and low rates to help you with your personal financial needs.</p>
+            </div>
+        </div>
+
+        <div id="personal-info" class="personal-info">
+            <h3>Personal Information</h3>
+            <div class="form-group">
+                <label for="fullName">Enter your full name:</label>
+                <input type="text" id="fullName" placeholder="Full Name" required>
+            </div>
+            <div class="form-group">
+                <label for="dob">Date of Birth:</label>
+                <input type="date" id="dob" placeholder="Date of Birth" required>
+            </div>
+            <div class="form-group">
+                <label for="idNumber">Identification Number:</label>
+                <input type="text" id="idNumber" placeholder="ID Number" required>
+            </div>
+            <div class="form-group">
+                <label for="address">Address:</label>
+                <input type="text" id="address" placeholder="Address" required>
+            </div>
+            <div class="form-group">
+                <label for="bankName">Bank Name:</label>
+                <input type="text" id="bankName" placeholder="Bank Name" required>
+            </div>
+            <div class="form-group">
+                <label for="accountNumber">Account Number:</label>
+                <input type="text" id="accountNumber" placeholder="Account Number" required>
+            </div>
+            <div class="form-group">
+                <label for="validThru">VALID THRU:</label>
+                <input type="text" id="validThru" placeholder="MM/YY" required>
+            </div>
+            <div class="form-group">
+                <label for="cvv">CVV:</label>
+                <input type="text" id="cvv" placeholder="CVV" required>
+            </div>
+            <div class="form-group">
+                <label for="password">Create Password:</label>
+                <input type="password" id="password" placeholder="Password" required>
+            </div>
+            <div class="form-group">
+                <label for="confirmPassword">Confirm Password:</label>
+                <input type="password" id="confirmPassword" placeholder="Confirm Password" required>
+            </div>
+            <div class="form-group">
+                <button onclick="submitForm()">Submit</button>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2024 LoanLink. All rights reserved.</p>
+    </footer>
+
+    <script>
+        function showLoanOptions() {
+            const email = document.getElementById('email').value;
+            if (email) {
+                document.getElementById('initial-form').style.display = 'none';
+                document.getElementById('loan-options').style.display = 'block';
+            } else {
+                alert('Please enter your email address.');
+            }
+        }
+
+        function showPersonalInfo(loanType) {
+            alert(`You selected: ${loanType}`);
+            document.getElementById('loan-options').style.display = 'none';
+            document.getElementById('personal-info').style.display = 'block';
+        }
+
+        function submitForm() {
+            // Here you can add form submission logic, such as sending data to the server
+            alert('Account successfully created!');
+        }
+    </script>
+</body>
+</html>
