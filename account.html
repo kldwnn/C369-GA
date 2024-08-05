@@ -10,9 +10,10 @@
             margin: 0;
             padding: 0;
             color: #333;
+            background-color: #f4f4f4;
         }
         header {
-            background-color:  #c6fff0d3;
+            background-color: #c6fff0d3;
             color: #fff;
             padding: 1rem;
             text-align: center;
@@ -23,9 +24,12 @@
             gap: 1rem;
         }
         nav a {
-            color:  #000000 ;
+            color: #000000;
             text-decoration: none;
             font-weight: bold;
+        }
+        nav a:hover {
+            color: #007BFF;
         }
         .container {
             width: 80%;
@@ -36,34 +40,53 @@
             text-align: center;
             margin-bottom: 2rem;
         }
-        .loan-details {
-            background-color: #f4f4f4;
-            padding: 2rem;
-            border-radius: 8px;
-            margin-bottom: 2rem;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-        }
-        .loan-details h3 {
-            color: #007BFF;
-        }
-        .payment-history {
+        .profile-info, .loan-details, .payment-history, .recent-activity, .upcoming-payments, .alerts, .contact-support {
             background-color: #fff;
-            border: 1px solid #ddd;
             border-radius: 8px;
             padding: 1rem;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
             margin-bottom: 2rem;
-            max-width: 300px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, background-color 0.3s ease, box-shadow 0.3s ease;
         }
-        .payment-history h4 {
+        .profile-info:hover, .loan-details:hover, .payment-history:hover, .recent-activity:hover, .upcoming-payments:hover, .alerts:hover, .contact-support:hover {
+            background-color: #e0e0e0;
+            transform: scale(1.05); /* Slightly enlarges the element */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+        .profile-info img {
+            border-radius: 50%;
+            width: 100px;
+            height: 100px;
+            object-fit: cover;
+        }
+        .profile-info h3 {
+            margin-top: 0;
+            color: #007BFF;
+        }
+        .profile-info p {
+            margin: 0.5rem 0;
+        }
+        .loan-details h3, .payment-history h4, .recent-activity h4, .upcoming-payments h4, .alerts h4, .contact-support h4 {
             color: #007BFF;
         }
         .payment-entry {
             border-bottom: 1px solid #ddd;
             padding: 0.5rem 0;
+            transition: background-color 0.3s ease;
         }
         .payment-entry:last-child {
             border-bottom: none;
+        }
+        .payment-entry:hover {
+            background-color: #f0f0f0;
+        }
+        .recent-activity ul, .upcoming-payments ul, .alerts ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        .recent-activity li, .upcoming-payments li, .alerts li {
+            margin-bottom: 0.5rem;
         }
         footer {
             background-color: #007BFF;
@@ -78,22 +101,31 @@
 </head>
 <body>
     <header>
-        <img src="Logo.png" alt="LoanLink Logo" style = 'width: 300px; height: 120px;'>
-           
+        <img src="Logo.png" alt="LoanLink Logo" style='width: 300px; height: 120px;'>
         <nav>
             <a href="homepage.html">Home</a>
             <a href="account.html">Account</a>
             <a href="loanCalculator.html">Loan Calculator</a>
             <a href="registerPage.html">Register</a>
-            <a href="#">More</a>
+            <a href="makePayment.html">More</a>
         </nav>
     </header>
 
     <div class="container">
         <div class="welcome-message">
-            <h2>Welcome, John</h2>
+            <h2>Welcome, Syaheed</h2>
         </div>
 
+        <!-- Profile Information -->
+        <div class="profile-info">
+            <h3>Profile Information</h3>
+            <img src="man GA.png" alt="Profile Picture">
+            <p><strong>Name:</strong> Syaheed</p>
+            <p><strong>Email:</strong> izsyahd@example.com</p>
+            <p><strong>Phone:</strong> 9876 5432</p>
+        </div>
+
+        <!-- Loan Details -->
         <div class="loan-details">
             <h3>Loan Details</h3>
             <p><strong>Loan Amount:</strong> $1000</p>
@@ -103,6 +135,7 @@
             <p><strong>Next Payment Due Date:</strong> July</p>
         </div>
 
+        <!-- Payment History -->
         <div class="payment-history">
             <h4>Payment History</h4>
             <div class="payment-entry">
@@ -117,6 +150,42 @@
                 <p><strong>3rd Payment:</strong> $175</p>
                 <p><strong>Date:</strong> 1 June 2024</p>
             </div>
+        </div>
+
+        <!-- Recent Activity -->
+        <div class="recent-activity">
+            <h4>Recent Activity</h4>
+            <ul>
+                <li>Requested a new loan on 1 July 2024</li>
+                <li>Updated profile information on 15 June 2024</li>
+                <li>Viewed loan details on 10 June 2024</li>
+            </ul>
+        </div>
+
+        <!-- Upcoming Payments -->
+        <div class="upcoming-payments">
+            <h4>Upcoming Payments</h4>
+            <ul>
+                <li><strong>Payment Amount:</strong> $175 - Due on 1 July 2024</li>
+                <li><strong>Payment Amount:</strong> $175 - Due on 1 August 2024</li>
+            </ul>
+        </div>
+
+        <!-- Alerts -->
+        <div class="alerts">
+            <h4>Alerts</h4>
+            <ul>
+                <li>Your next payment is due in 5 days.</li>
+                <li>New loan offers available in your account.</li>
+            </ul>
+        </div>
+
+        <!-- Contact Support -->
+        <div class="contact-support">
+            <h4>Contact Support</h4>
+            <p>If you need assistance, please reach out to our support team:</p>
+            <p><strong>Email:</strong> supportline@loanlink.com</p>
+            <p><strong>Phone:</strong> 6333 0033</p>
         </div>
     </div>
 

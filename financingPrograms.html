@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LoanLink - Financing Programs</title>
+    <style>
+        body {
+            font-family: 'Lucida Sans', sans-serif;
+            margin: 0;
+            padding: 0;
+            color: #333;
+            background-color: #f4f4f4;
+        }
+        header {
+            background-color: #c6fff0d3;
+            padding: 1rem;
+            text-align: center;
+        }
+        nav {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+        }
+        nav a {
+            color: #000000;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        .dropdown {
+            position: relative;
+            display: inline-block;
+        }
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: #e7e5e5d8;
+            box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+            z-index: 1;
+        }
+        .dropdown-content a {
+            color: black;
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+        }
+        .dropdown-content a:hover {
+            background-color: #ddd;
+        }
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+        .container {
+            width: 80%;
+            margin: 0 auto;
+            padding: 2rem 0;
+        }
+        .financing-section {
+            display: flex;
+            justify-content: space-between;
+            gap: 1rem;
+            margin-bottom: 2rem;
+        }
+        .financing-box {
+            background-color: #fff;
+            border: 2px solid black;
+            border-radius: 12px;
+            padding: 1rem;
+            width: 100%;
+            max-width: 300px;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+            box-sizing: border-box;
+            color: black;
+            position: relative;
+        }
+        .financing-box h3 {
+            margin-top: 0;
+        }
+        .financing-box p {
+            margin: 0.5rem 0;
+        }
+        footer {
+            text-align: center;
+            padding: 1rem;
+            background-color: #c6fff0d3;
+            color: #333;
+        }
+        .video-section {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+        .video-box {
+            margin: 1rem 0;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+        }
+        .video-box iframe {
+            width: 100%;
+            height: 315px; /* Adjust height as needed */
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <img src="Logo.png" alt="LoanLink Logo" style='width: 300px; height: 120px;'>
+        <nav>
+            <a href="homepage.html">Home</a>
+            <a href="account.html">Account</a>
+            <a href="loanCalculator.html">Loan Calculator</a>
+            <a href="registerPage.html">Register</a>
+            <div class="dropdown">
+                <a href="#" class="dropbtn">More</a>
+                <div class="dropdown-content">
+                    <a href="makePayment.html">Make Payment</a>
+                    <a href="financingPrograms.html">Financing Programs</a>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <div class="container">
+        <div class="financing-section">
+            <div class="financing-box">
+                <h3>Microloans</h3>
+                <p><strong>Purpose:</strong> Microloans are small, short-term loans to help cover unexpected expenses.</p>
+                <p><strong>Loan Amount:</strong> Up to $1,000</p>
+                <p><strong>Interest Rate:</strong> Low-interest rates to ensure affordability</p>
+                <p><strong>Repayment Term:</strong> Flexible terms ranging from 3 to 12 months</p>
+            </div>
+            <div class="financing-box">
+                <h3>Emergency Loans</h3>
+                <p><strong>Purpose:</strong> Provides immediate financial relief for urgent situations like medical bills, repairs, or other emergencies.</p>
+                <p><strong>Loan Amount:</strong> Up to $500</p>
+                <p><strong>Interest Rate:</strong> Minimal interest to ease the burden</p>
+                <p><strong>Repayment Term:</strong> Short-term repayment plans tailored to your situation</p>
+            </div>
+            <div class="financing-box">
+                <h3>Education Loans</h3>
+                <p><strong>Purpose:</strong> Education loans help cover tuition fees, books, and other educational expenses.</p>
+                <p><strong>Loan Amount:</strong> Up to $2,000</p>
+                <p><strong>Interest Rate:</strong> Very low-interest rates to make education affordable</p>
+                <p><strong>Repayment Term:</strong> Extended terms up to 24 months, with a grace period until after graduation</p>
+            </div>
+        </div>
+
+        <div class="video-section">
+            <div class="video-box">
+                <iframe src="https://www.youtube.com/embed/VIDEO_ID_1" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div>
+            <div class="video-box">
+                <iframe src="https://www.youtube.com/embed/VIDEO_ID_2" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2024 LoanLink. All rights reserved.</p>
+    </footer>
+</body>
+</html>

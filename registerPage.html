@@ -13,7 +13,7 @@
             background-color: #f4f4f4;
         }
         header {
-            background-color:  #c6fff0d3;
+            background-color: #c6fff0d3;
             padding: 1rem;
             text-align: center;
         }
@@ -56,11 +56,11 @@
         }
         .form-group button:hover {
             background-color: #0056b3;
-            color:#c2c2c2c3;
+            color: #c2c2c2c3;
             border: none;
             transition: background-color 0.6s ease, color 0.6s ease;
         }
-        .loan-options, .personal-info {
+        .loan-options, .personal-info, .sign-in-form {
             display: none;
         }
         .loan-option {
@@ -77,14 +77,13 @@
 </head>
 <body>
     <header>
-        <img src="Logo.png" alt="LoanLink Logo" style = 'width: 300px; height: 120px;'>
-
+        <img src="Logo.png" alt="LoanLink Logo" style="width: 300px; height: 120px;">
         <nav>
             <a href="homepage.html">Home</a>
             <a href="account.html">Account</a>
             <a href="loanCalculator.html">Loan Calculator</a>
             <a href="registerPage.html">Register</a>
-            <a href="#">More</a>
+            <a href="makePayment.html">More</a>
         </nav>
     </header>
 
@@ -98,7 +97,7 @@
             <div class="form-group">
                 <button onclick="showLoanOptions()">Next</button>
             </div>
-            <p>Already have an account? <a href="#">Sign In</a></p>
+            <p>Already have an account? <a href="#" onclick="showSignInForm()">Sign In</a></p>
         </div>
 
         <div id="loan-options" class="loan-options">
@@ -159,6 +158,21 @@
                 <button onclick="submitForm()">Submit</button>
             </div>
         </div>
+
+        <div id="sign-in-form" class="sign-in-form">
+            <h3>Sign In</h3>
+            <div class="form-group">
+                <label for="signInIdNumber">Identification Number:</label>
+                <input type="text" id="signInIdNumber" placeholder="Enter your ID number" required>
+            </div>
+            <div class="form-group">
+                <label for="signInPassword">Password:</label>
+                <input type="password" id="signInPassword" placeholder="Enter your password" required>
+            </div>
+            <div class="form-group">
+                <button onclick="signIn()">Sign In</button>
+            </div>
+        </div>
     </div>
 
     <footer>
@@ -182,8 +196,54 @@
             document.getElementById('personal-info').style.display = 'block';
         }
 
+        function showSignInForm() {
+            document.getElementById('initial-form').style.display = 'none';
+            document.getElementById('sign-in-form').style.display = 'block';
+        }
+
+        function signIn() {
+            const idNumber = document.getElementById('signInIdNumber').value;
+            const password = document.getElementById('signInPassword').value;
+
+            // Debugging information
+            console.log('Entered ID Number:', idNumber);
+            console.log('Entered Password:', password);
+
+            // Mock login validation
+            if (idNumber.trim() === 'T0518958B' && password === 'password123') {
+                window.location.href = 'account.html';
+            } else {
+                alert('Invalid ID number or password.');
+            }
+        }
+
         function submitForm() {
-            // Here you can add form submission logic, such as sending data to the server
+            const fullName = document.getElementById('fullName').value;
+            const dob = document.getElementById('dob').value;
+            const idNumber = document.getElementById('idNumber').value;
+            const address = document.getElementById('address').value;
+            const bankName = document.getElementById('bankName').value;
+            const accountNumber = document.getElementById('accountNumber').value;
+            const validThru = document.getElementById('validThru').value;
+            const cvv = document.getElementById('cvv').value;
+            const password = document.getElementById('password').value;
+            const confirmPassword = document.getElementById('confirmPassword').value;
+
+            if (password !== confirmPassword) {
+                alert('Passwords do not match.');
+                return;
+            }
+
+            // Debugging information
+            console.log('Full Name:', fullName);
+            console.log('Date of Birth:', dob);
+            console.log('ID Number:', idNumber);
+            console.log('Address:', address);
+            console.log('Bank Name:', bankName);
+            console.log('Account Number:', accountNumber);
+            console.log('Valid Thru:', validThru);
+            console.log('CVV:', cvv);
+
             alert('Account successfully created!');
         }
     </script>
